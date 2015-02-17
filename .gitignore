@@ -1,0 +1,5 @@
+ConfigureShortcuts/obj/
+CopyShortcutAssembly/obj/
+bin/
+*.suo
+*~
