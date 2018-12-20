@@ -72,12 +72,16 @@ namespace ConfigureShortcuts
                     System.Diagnostics.Process.Start("cmd.exe", cpyargs);
                 p.WaitForExit();
 
+                // WL 12.35 and earlier expect this
                 WritePrivateProfileString("Configuration", "ExtShortcutAssembly", assembly, "writelog.ini");
                 WritePrivateProfileString("Configuration", "ExtShortcutClass", 
                     assembly + "." + classname, "writelog.ini");
+                // WL 12.36 and later use this.. its OK to do both.
+                WritePrivateProfileString("ExternalShortcuts",  assembly + "." + classname, assembly,"writelog.ini");
             }
             else
             {
+                WritePrivateProfileString("ExternalShortcuts", assembly + "." + classname, null, "writelog.ini");
                 WritePrivateProfileString("Configuration", "ExtShortcutAssembly", null, "writelog.ini");
                 WritePrivateProfileString("Configuration", "ExtShortcutClass", null, "writelog.ini");
 

@@ -1,5 +1,6 @@
 ConfigureShortcuts/obj/
 CopyShortcutAssembly/obj/
+.vs/
 bin/
 *.suo
 *~
